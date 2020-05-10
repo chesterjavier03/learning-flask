@@ -286,3 +286,5 @@ header {
 .leaflet-popup-content p {
   margin: 10px 0 ;
 }
+
+#mapid { height: 500px; }

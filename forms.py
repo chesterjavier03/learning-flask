@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, Length
-from validate_email import validate_email
 
 
 class SignupForm(FlaskForm):
@@ -14,3 +13,15 @@ class SignupForm(FlaskForm):
     submit = SubmitField('Sign up')
 
 
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired('Please enter your email address.'),
+                                             Email("Please enter your email address.")])
+    password = PasswordField('Password', validators=[DataRequired('Please enter your password.'),
+                                                     Length(min=6, message="Passwords must 6 characters or more.")])
+    submit = SubmitField('Sign in')
+
+
+class AddressForm(FlaskForm):
+    address = StringField('Address', validators=[DataRequired("Please enter an address.")])
+
+    submit = SubmitField('Search')
